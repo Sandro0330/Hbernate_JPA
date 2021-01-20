@@ -1,0 +1,15 @@
+package br.com.hibernate.domain;
+
+import javax.persistence.EntityManager;
+
+public class BuscandoVeiculo3 {
+	
+	public static void main(String[] args) {
+		EntityManager manager = JpaUtil.getEntityManager();
+		
+		Veiculo veiculo = manager.getReference(Veiculo.class, 1L);
+		System.out.println("Buscando veículo. Será que já executou o SELECT");
+		System.out.println("Veiculo de código " + veiculo.getCodigo() + " é um " + veiculo.getModelo());
+	}
+
+}

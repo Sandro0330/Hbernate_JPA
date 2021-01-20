@@ -2,14 +2,17 @@ package br.com.hibernate.domain;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
+@Table(name = "tab_veiculos")
 public class Veiculo {
 	
-	@Id
-	@GeneratedValue
+	
 	private Long codigo;
 	private String fabricante;
 	private String modelo;
@@ -20,7 +23,9 @@ public class Veiculo {
 	public Veiculo() {
 		
 	}
-
+	
+	@Id
+	@GeneratedValue
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -29,6 +34,8 @@ public class Veiculo {
 		this.codigo = codigo;
 	}
 
+	
+	@Column(length = 60, nullable = false)
 	public String getFabricante() {
 		return fabricante;
 	}
@@ -36,7 +43,8 @@ public class Veiculo {
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}
-
+	
+	@Column(length = 60, nullable = false)
 	public String getModelo() {
 		return modelo;
 	}
@@ -44,7 +52,8 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-
+	
+	@Column(name = "ano_fabricacao", nullable = false)
 	public Integer getAnoFabricacao() {
 		return anoFabricacao;
 	}
@@ -53,6 +62,7 @@ public class Veiculo {
 		this.anoFabricacao = anoFabricacao;
 	}
 
+	@Column(name = "ano_modelo", nullable = false)
 	public Integer getAnoModelo() {
 		return anoModelo;
 	}
@@ -61,6 +71,7 @@ public class Veiculo {
 		this.anoModelo = anoModelo;
 	}
 
+	@Column(precision = 10, scale = 2, nullable = true)
 	public BigDecimal getValor() {
 		return valor;
 	}
