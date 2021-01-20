@@ -1,0 +1,5 @@
+package com.hibernate.veiculos.domain;
+
+public class CriandoTabelas {
+
+}

@@ -1,0 +1,6 @@
+package snippet;
+
+public class Snippet {
+	No Persistence provider for EntityManager named Veiculo
+}
+

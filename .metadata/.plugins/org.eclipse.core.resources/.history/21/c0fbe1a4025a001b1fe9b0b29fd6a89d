@@ -1,0 +1,20 @@
+package application;
+
+import org.hibernate.Session;
+
+import connection.HibernateUtil;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
+		session.beginTransaction();
+		String sql = "select version()";
+		String resultado = (String)session.createNativeQuery(sql).getSingleResult();
+		System.out.println(resultado);
+		session.getTransaction().commit();
+		session.close();
+	}
+
+}
