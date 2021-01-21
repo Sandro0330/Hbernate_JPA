@@ -1,0 +1,49 @@
+package br.com.hibernate.domain;
+
+import java.math.BigDecimal;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+public class PersistindoVeiculo {
+	
+	public static void main(String[] args) {	
+		EntityManager manager = JpaUtil.getEntityManager();
+		EntityTransaction tx = manager.getTransaction();
+		tx.begin();
+		
+		Veiculo veiculo2 = new Veiculo();
+		veiculo2.setFabricante("Wolksvagem");
+		veiculo2.setModelo("Fusca");
+		veiculo2.setAnoFabricacao(78);
+		veiculo2.setAnoModelo(79);
+		veiculo2.setValor(new BigDecimal(10000));
+		
+		
+		Veiculo veiculo1 = new Veiculo();
+		veiculo1.setFabricante("Ford");
+		veiculo1.setModelo("Ford-Ka");
+		veiculo1.setAnoFabricacao(2013);
+		veiculo1.setAnoModelo(2014);
+		veiculo1.setValor(new BigDecimal(402000));
+		
+		
+		
+		Veiculo veiculo3 = new Veiculo();
+		veiculo3.setFabricante("Ford");
+		veiculo3.setModelo("Focus");
+		veiculo3.setAnoFabricacao(2014);
+		veiculo3.setAnoModelo(2015);
+		veiculo3.setValor(new BigDecimal(503000));
+		
+		manager.persist(veiculo1);
+		manager.persist(veiculo2);
+		manager.persist(veiculo3);
+		
+		tx.commit();
+		manager.close();
+		JpaUtil.close();
+		
+	}
+
+}

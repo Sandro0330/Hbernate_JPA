@@ -13,12 +13,12 @@ public class PersistindoVeiculo {
 		tx.begin();
 		
 		Veiculo veiculo = new Veiculo();
-		veiculo.setFabricante("Wolksvagem");
-		veiculo.setModelo("Fusca");
-		veiculo.setAnoFabricacao(78);
-		veiculo.setAnoModelo(79);
-		veiculo.setValor(new BigDecimal(10000));
-			
+		veiculo.setFabricante("Honda");
+		veiculo.setModelo("Civic");
+		veiculo.setAnoFabricacao(2012);
+		veiculo.setAnoModelo(2013);
+		veiculo.setValor(new BigDecimal(713000));
+		
 		manager.persist(veiculo);
 		
 		tx.commit();
